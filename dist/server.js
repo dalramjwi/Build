@@ -1,7 +1,9 @@
 import http from "http";
 const server = http
   .createServer(function (req, res) {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello, World!");
+    if (req.method === "GET") {
+      res.writeHead(200, { "Content-Type": "text/plain" });
+      res.end("Hello, World!");
+    }
   })
   .listen(8080);
